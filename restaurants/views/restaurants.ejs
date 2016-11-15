@@ -1,0 +1,37 @@
+<%- include('partials/header') %>
+<h1>Full Restaurants Directory</h1>
+<table>
+  <thead>
+    <tr>
+      <th class="col-sm-2">Name</th>
+      <th class="col-sm-2">Phone Number</th>
+      <th class="col-sm-2">Address</th>
+      <th class="col-sm-2">Cuisine</th>
+      <th class="col-sm-2">Rating</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% restaurants.forEach(function(restaurant){ %>
+      <tr>
+        <td class="col-sm-2">
+          <%= restaurant.name %>
+        </td>
+        <td class="col-sm-2">
+          <%= restaurant.phone %>
+        </td>
+        <td class="col-sm-2">
+          <%= restaurant.address %>
+        </td>
+        <td class="col-sm-2">
+          <%= restaurant.cuisine %>
+        </td>
+        <td class="col-sm-2">
+          <% for(var i=0; i < restaurant.rating; i++) { %>
+            *
+            <% } %>
+        </td>
+      </tr>
+    <% }); %>
+  </tbody>
+</table>
+<%- include('partials/footer') %>
