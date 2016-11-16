@@ -29,13 +29,16 @@
         </td>
         <td class="col-sm-2">
           <% for(var i=0; i < restaurant.rating; i++) { %>
-            *
+            &#10026;
             <% } %>
         </td>
         <td class="col-sm-2"><a href="/">Edit</a></td>
         <td class="col-sm-2"><a href="/" class="confirmation">Delete</a></td>
       </tr>
     <% }); %>
+    <tr>
+      <td><a href="/">Add New Restaurant</a></td>
+    </tr>
   </tbody>
 </table>
 <%- include('partials/footer') %>
