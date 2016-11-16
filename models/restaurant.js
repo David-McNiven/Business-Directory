@@ -16,5 +16,5 @@ module.exports = mongoose.model('restaurants', new mongoose.Schema({
   rating:{
     type: Number
   }
-})
+}), 'restaurants'
 );
