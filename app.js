@@ -5,8 +5,10 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+var mongoose = require('mongoose');
 var passport = require('passport');
 var localStrategy = require('passport-local').Strategy;
+var githubStrategy = require('passport-github').Strategy;
 var session = require('express-session');
 var flash = require('connect-flash');
 
@@ -42,10 +44,28 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-passport.use(User.createStrategy());
+passport.use(user.createStrategy());
 
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
+passport.use(new githubStrategy({
+  clientID: db.githubID,
+  clientSecret: db.githubSecret,
+  callbackURL: db.githubCallback
+  }, function(accessToken, refreshToken, profile, cb) {
+    user.findOneAndUpdate({ oauthID: profile.id },
+      { username: profile.username, oauthID: profile.id },
+      { upsert: true },
+      function(err, user) {
+        if (err) {
+          console.log(err);
+        }
+        else {
+          cb(null, user);
+        }
+    })
+}));
+
+passport.serializeUser(user.serializeUser());
+passport.deserializeUser(user.deserializeUser());
 
 app.use('/', routes);
 app.use('/users', users);

@@ -13,5 +13,5 @@ var UserSchema = new mongoose.Schema({
   }
 });
 
-userSchema.plugin(plm);
-module.exports = mongoose.model('User', UserSchema,'users');
+UserSchema.plugin(plm);
+module.exports = mongoose.model('user', UserSchema,'users');

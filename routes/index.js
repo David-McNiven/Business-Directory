@@ -1,5 +1,6 @@
 var express = require('express');
 var passport = require('passport');
+var user = require('../models/user');
 var router = express.Router();
 
 /* GET home page. */
@@ -30,7 +31,7 @@ router.get('/register', function(req, res, next) {
 });
 
 router.post('/register', function(req, res, next) {
-  User.register(new User({ username: req.body.username }), req.body.password,
+  user.register(new user({ username: req.body.username }), req.body.password,
       function(err, user) {
         if (err) {
           res.redirect('/error');
@@ -42,7 +43,15 @@ router.post('/register', function(req, res, next) {
   );
 });
 
-router.get('/logout', funtion(req, res, next){
+router.get('/github', passport.authenticate('github'));
+
+router.get('/github/callback', passport.authenticate('github', {
+  successRedirect: '/restaurants',
+  failureRedirect: '/login',
+  failureMessage: 'Invalid Credentials'
+}));
+
+router.get('/logout', function(req, res, next) {
   req.logout();
   res.redirect('/');
 });
