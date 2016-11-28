@@ -8,16 +8,16 @@
       <th class="col-sm-2">Address</th>
       <th class="col-sm-2">Cuisine</th>
       <th class="col-sm-2">Rating</th>
-      <%- if (user) { %>
+      <% if (user) { %>
         <th class="col-sm-2">Edit</th>
         <th class="col-sm-2">Delete</th>
-      <%- } %>
+      <% } %>
     </tr>
   </thead>
   <tbody>
-    <%- if (user) { %>
+    <% if (user) { %>
       <tr><td><a href="/new">Add New Restaurant</a></td></tr>
-    <%- } %>
+    <% } %>
     <% restaurants.forEach(function(restaurant){ %>
       <tr>
         <td class="col-sm-2">
@@ -37,15 +37,15 @@
             &#10026;
             <% } %>
         </td>
-        <%- if (user) { %>
+        <% if (user) { %>
           <td class="col-sm-2"><a href="/<%= restaurant._id %>">Edit</a></td>
           <td class="col-sm-2"><a href="/delete/<%= restaurant._id %>" class="confirmation">Delete</a></td>
-        <%- } %>
+        <% } %>
       </tr>
     <% }); %>
-    <%- if (user) { %>
+    <% if (user) { %>
       <tr><td><a href="/new">Add New Restaurant</a></td></tr>
-    <%- } %>
+    <% } %>
   </tbody>
 </table>
 <%- include('partials/footer') %>

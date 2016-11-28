@@ -1,9 +1,9 @@
 <%- include('partials/header') %>
 <h1>Log In</h1>
 <form method="post" class="formgroup">
-  <%- if (messages.length > 0) { %>
+  <% if (messages.length > 0) { %>
     <div class="alert alert-danger"><%= messages %></div>
-  <%- } %>
+  <% } %>
   <fieldset>
     <label for="username" class="col-sm-2">Username:</label>
     <input name="username" id="username" required class="col-sm-2" />

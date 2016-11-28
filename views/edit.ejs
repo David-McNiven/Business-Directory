@@ -21,11 +21,11 @@
     <label for="rating" class="col-sm-2" >Rating:</label>
     <select name="rating" id="rating" required class="col-sm-2">
       <% for(var i=0; i < 5; i++) { %>
-        <%- if (restaurant.rating = i) { %>
+        <% if (restaurant.rating = i) { %>
           <option value="<%= i %>" selected>
         <% } else { %>
           <option value="<%= i %>">
-        <%- } %>
+        <% } %>
           <% for(var j=0; j < i; j++) { %>
             &#10026;
           <% } %>

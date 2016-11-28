@@ -17,13 +17,13 @@
         <li><a href="/restaurants">Restaurants</a></li>
       </ul>
       <ul class="nav navbar-nav pull-right">
-        <%- if (user) { %>
+        <% if (user) { %>
           <p>Welcome <%= user.username %></p>
           <li><a href="/logout">Logout</a></li>
-        <%- } else { %>
+        <% } else { %>
           <li><a href="/login">Login</a></li>
           <li><a href="/register">Register</a></li>
-        <%- } %>
+        <% } %>
       </ul>
     </div>
   </nav>
