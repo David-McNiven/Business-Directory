@@ -13,7 +13,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/new', isAuth, function(req, res, next) {
-  res.render('edit', { title: 'Add New', user: req.user });
+  res.render('edit', { title: 'Add New', user: req.user, restaurant: null });
 });
 
 router.post('/new', isAuth, function(req, res, next) {
@@ -37,7 +37,7 @@ router.get('/:id', isAuth, function(req, res, next) {
     if (err) {
       res.redirect('/error');
     } else {
-      res.render('edit', { title: 'Edit ' + restaurant.name, restaurants: restaurant, user: req.user });
+      res.render('edit', { title: 'Edit ' + restaurant.name, restaurant: restaurant, user: req.user });
     }
   });
 });

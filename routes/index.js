@@ -34,14 +34,14 @@ router.get('/register', function(req, res, next) {
 
 router.post('/register', function(req, res, next) {
   user.register(new user({ username: req.body.username }), req.body.password,
-      function(err, user) {
-        if (err) {
-          res.redirect('/error');
-        }
-        else {
-          res.redirect('/login');
-        }
+    function(err, user) {
+      if (err) {
+        res.redirect('/error');
       }
+      else {
+        res.redirect('/login');
+      }
+    }
   );
 });
 

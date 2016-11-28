@@ -3,13 +3,13 @@ var plm = require('passport-local-mongoose');
 
 var UserSchema = new mongoose.Schema({
   username: {
-      type: String,
+    type: String,
   },
   password: {
-      type: String
+    type: String
   },
   oauthID: {
-      type: String
+    type: String
   }
 });
 
