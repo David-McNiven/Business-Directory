@@ -8,6 +8,7 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Home' , user: req.user});
 });
 
+// GET login page
 router.get('/login', function(req, res, next) {
   var messages = req.session.messages || [];
   req.session.messages = [];
@@ -18,12 +19,14 @@ router.get('/login', function(req, res, next) {
   }
 });
 
+// authenticate login on POST
 router.post('/login', passport.authenticate('local', {
   successRedirect: '/restaurants',
   failureRedirect: '/login',
   failureMessage: 'Invalid Credentials'
 }));
 
+// GET register page
 router.get('/register', function(req, res, next) {
   if (req.user){
     res.redirect('/');
@@ -32,6 +35,7 @@ router.get('/register', function(req, res, next) {
   }
 });
 
+// attempt new user creation
 router.post('/register', function(req, res, next) {
   user.register(new user({ username: req.body.username }), req.body.password,
     function(err, user) {
@@ -45,14 +49,17 @@ router.post('/register', function(req, res, next) {
   );
 });
 
+// GitHub authentication
 router.get('/github', passport.authenticate('github'));
 
+// GitHub callback authentication
 router.get('/github/callback', passport.authenticate('github', {
   successRedirect: '/restaurants',
   failureRedirect: '/login',
   failureMessage: 'Invalid Credentials'
 }));
 
+// GET logout request
 router.get('/logout', function(req, res, next) {
   req.logout();
   res.redirect('/');

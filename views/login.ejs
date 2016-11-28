@@ -4,18 +4,22 @@
   <% if (messages.length > 0) { %>
     <div class="alert alert-danger"><%= messages %></div>
   <% } %>
-  <fieldset class="formgroup">
+  <fieldset class="form-group">
     <label for="username" class="col-sm-2">Username:</label>
-    <input name="username" id="username" required class="form-control col-sm-2" />
+    <div class="col-sm-2">
+      <input name="username" id="username" required class="form-control" />
+    </div>
   </fieldset>
-  <fieldset class="formgroup">
-    <label for="password"class="col-sm-2" >Password:</label>
-    <input name="password" id="password" type="password" required class="form-control col-sm-2" />
+  <fieldset class="form-group">
+    <label for="password" class="col-sm-2">Password:</label>
+    <div class="col-sm-2">
+      <input name="password" id="password" type="password" required class="form-control" />
+    </div>
   </fieldset>
-  <fieldset class="formgroup">
+  <fieldset class="form-group">
     <button type="submit" class="btn col-sm-offset-2">Submit</button>
   </fieldset>
-  <fieldset class="formgroup">
+  <fieldset class="form-group">
     <a href="/github" class="col-sm-offset-2">
       <img src="/images/github.png" alt="Log In with GitHub" />
     </a>

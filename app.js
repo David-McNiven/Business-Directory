@@ -5,6 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+// additional dependencies
 var mongoose = require('mongoose');
 var passport = require('passport');
 var localStrategy = require('passport-local').Strategy;
@@ -12,9 +13,11 @@ var githubStrategy = require('passport-github').Strategy;
 var session = require('express-session');
 var flash = require('connect-flash');
 
+// config file
 var db = require('./config/globalVars');
 var user = require('./models/user');
 
+// routing
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var restaurants = require('./routes/restaurants')
@@ -34,8 +37,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// database connection
 mongoose.connect(db.db);
 
+// user authentication
 app.use(session({
   secret: db.secret,
   resave: true,
@@ -46,6 +51,7 @@ app.use(passport.session());
 
 passport.use(user.createStrategy());
 
+// GitHub authentication
 passport.use(new githubStrategy({
   clientID: db.githubID,
   clientSecret: db.githubSecret,
@@ -77,6 +83,7 @@ passport.use(new githubStrategy({
 passport.serializeUser(user.serializeUser());
 passport.deserializeUser(user.deserializeUser());
 
+// set routes
 app.use('/', routes);
 app.use('/users', users);
 app.use('/restaurants', restaurants);

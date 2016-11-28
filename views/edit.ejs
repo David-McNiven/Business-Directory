@@ -1,39 +1,49 @@
 <%- include('partials/header') %>
 <h1><%= title %></h1>
 <form method="post">
-  <fieldset class="formgroup">
+  <fieldset class="form-group">
     <label for="name" class="col-sm-2" >Name:</label>
-    <input name="name" id="name" required class="form-control col-sm-2" value="<%= restaurant ? restaurant.name : '' %>"/>
+    <div class="col-sm-2">
+      <input name="name" id="name" required class="form-control" value="<%= restaurant ? restaurant.name : '' %>"/>
+    </div>
   </fieldset>
-  <fieldset class="formgroup">
+  <fieldset class="form-group">
     <label for="phone" class="col-sm-2" >Phone Number:</label>
-    <input name="phone" id="phone" required class="form-control col-sm-2" value="<%= restaurant ? restaurant.phone : '' %>" />
+    <div class="col-sm-2">
+      <input name="phone" id="phone" required class="form-control" value="<%= restaurant ? restaurant.phone : '' %>" />
+    </div>
   </fieldset>
-  <fieldset class="formgroup">
+  <fieldset class="form-group">
     <label for="address" class="col-sm-2" >Address:</label>
-    <input name="address" id="address" required class="form-control col-sm-2" value="<%= restaurant ? restaurant.address : '' %>"/>
+    <div class="col-sm-2">
+      <input name="address" id="address" required class="form-control" value="<%= restaurant ? restaurant.address : '' %>"/>
+    </div>
   </fieldset>
-  <fieldset class="formgroup">
+  <fieldset class="form-group">
     <label for="cuisine" class="col-sm-2" >Cuisine:</label>
-    <input name="cuisine" id="cuisine" required class="form-control col-sm-2" value="<%= restaurant ? restaurant.cuisine : '' %>"/>
+    <div class="col-sm-2">
+      <input name="cuisine" id="cuisine" required class="form-control" value="<%= restaurant ? restaurant.cuisine : '' %>"/>
+    </div>
   </fieldset>
-  <fieldset class="formgroup">
+  <fieldset class="form-group">
     <label for="rating" class="col-sm-2" >Rating:</label>
-    <select name="rating" id="rating" required class="form-control col-sm-2">
-      <% for(var i=1; i <= 5; i++) { %>
-        <% if (restaurant) { %>
-          <option value="<%= i %>" <%= restaurant.rating == i ? 'selected' : '' %>>
-        <% } else { %>
-          <option value="<%= i %>">
-        <% } %>
-          <% for(var j=1; j <= i; j++) { %>
-            &#10026;
+    <div class="col-sm-2">
+      <select name="rating" id="rating" required class="form-control">
+        <% for(var i=1; i <= 5; i++) { %>
+          <% if (restaurant) { %>
+            <option value="<%= i %>" <%= restaurant.rating == i ? 'selected' : '' %>>
+          <% } else { %>
+            <option value="<%= i %>">
           <% } %>
-        </option>
-      <% } %>
-    </select>
+            <% for(var j=1; j <= i; j++) { %>
+              &#10026;
+            <% } %>
+          </option>
+        <% } %>
+      </select>
+    </div>
   </fieldset>
-  <fieldset class="formgroup">
+  <fieldset class="form-group">
     <button type="submit" class="btn col-sm-offset-2">Submit</button>
   </fieldset>
 </form>
