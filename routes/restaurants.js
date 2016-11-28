@@ -74,7 +74,6 @@ function isAuth (req, res, next) {
   if (req.isAuthenticated()) {
     return next();
   } else {
-    req.ession.messages = 'Must Login to view that page.';
     res.redirect('/login');
   }
 }

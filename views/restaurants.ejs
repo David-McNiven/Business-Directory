@@ -1,7 +1,7 @@
 <%- include('partials/header') %>
 <h1>Full Restaurants Directory</h1>
-<table>
-  <thead>
+<table class="table table-hover">
+  <thead class="thead-inverse">
     <% if (user) { %>
       <tr><td><a href="/restaurants/new">Add New Restaurant</a></td></tr>
     <% } %>

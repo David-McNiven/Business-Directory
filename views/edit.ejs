@@ -1,25 +1,25 @@
 <%- include('partials/header') %>
 <h1><%= title %></h1>
-<form method="post" class="formgroup">
-  <fieldset>
+<form method="post">
+  <fieldset class="formgroup">
     <label for="name" class="col-sm-2" >Name:</label>
-    <input name="name" id="name" required class="col-sm-2" value="<%= restaurant ? restaurant.name : '' %>"/>
+    <input name="name" id="name" required class="form-control col-sm-2" value="<%= restaurant ? restaurant.name : '' %>"/>
   </fieldset>
-  <fieldset>
+  <fieldset class="formgroup">
     <label for="phone" class="col-sm-2" >Phone Number:</label>
-    <input name="phone" id="phone" required class="col-sm-2" value="<%= restaurant ? restaurant.phone : '' %>" />
+    <input name="phone" id="phone" required class="form-control col-sm-2" value="<%= restaurant ? restaurant.phone : '' %>" />
   </fieldset>
-  <fieldset>
+  <fieldset class="formgroup">
     <label for="address" class="col-sm-2" >Address:</label>
-    <input name="address" id="address" required class="col-sm-2" value="<%= restaurant ? restaurant.address : '' %>"/>
+    <input name="address" id="address" required class="form-control col-sm-2" value="<%= restaurant ? restaurant.address : '' %>"/>
   </fieldset>
-  <fieldset>
+  <fieldset class="formgroup">
     <label for="cuisine" class="col-sm-2" >Cuisine:</label>
-    <input name="cuisine" id="cuisine" required class="col-sm-2" value="<%= restaurant ? restaurant.cuisine : '' %>"/>
+    <input name="cuisine" id="cuisine" required class="form-control col-sm-2" value="<%= restaurant ? restaurant.cuisine : '' %>"/>
   </fieldset>
-  <fieldset>
+  <fieldset class="formgroup">
     <label for="rating" class="col-sm-2" >Rating:</label>
-    <select name="rating" id="rating" required class="col-sm-2">
+    <select name="rating" id="rating" required class="form-control col-sm-2">
       <% for(var i=1; i <= 5; i++) { %>
         <% if (restaurant) { %>
           <option value="<%= i %>" <%= restaurant.rating == i ? 'selected' : '' %>>
@@ -33,7 +33,7 @@
       <% } %>
     </select>
   </fieldset>
-  <fieldset>
+  <fieldset class="formgroup">
     <button type="submit" class="btn col-sm-offset-2">Submit</button>
   </fieldset>
 </form>

@@ -1,21 +1,21 @@
 <%- include('partials/header') %>
 <h1>Log In</h1>
-<form method="post" class="formgroup">
+<form method="post">
   <% if (messages.length > 0) { %>
     <div class="alert alert-danger"><%= messages %></div>
   <% } %>
-  <fieldset>
+  <fieldset class="formgroup">
     <label for="username" class="col-sm-2">Username:</label>
-    <input name="username" id="username" required class="col-sm-2" />
+    <input name="username" id="username" required class="form-control col-sm-2" />
   </fieldset>
-  <fieldset>
+  <fieldset class="formgroup">
     <label for="password"class="col-sm-2" >Password:</label>
-    <input name="password" id="password" type="password" required class="col-sm-2" />
+    <input name="password" id="password" type="password" required class="form-control col-sm-2" />
   </fieldset>
-  <fieldset>
+  <fieldset class="formgroup">
     <button type="submit" class="btn col-sm-offset-2">Submit</button>
   </fieldset>
-  <fieldset>
+  <fieldset class="formgroup">
     <a href="/github" class="col-sm-offset-2">
       <img src="/images/github.png" alt="Log In with GitHub" />
     </a>
