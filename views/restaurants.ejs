@@ -39,7 +39,8 @@
         </td>
         <% if (user) { %>
           <td class="col-sm-2"><a href="/restaurants/<%= restaurant._id %>">Edit</a></td>
-          <td class="col-sm-2"><a href="/restaurants/delete/<%= restaurant._id %>" class="confirmation">Delete</a></td>
+          <td class="col-sm-2"><a href="/restaurants/delete/<%= restaurant._id %>"
+              class="confirmation" onclick="return confirm('Are you sure?')">Delete</a></td>
         <% } %>
       </tr>
     <% }); %>
