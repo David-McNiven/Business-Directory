@@ -21,8 +21,8 @@
     <label for="rating" class="col-sm-2" >Rating:</label>
     <select name="rating" id="rating" required class="col-sm-2">
       <% for(var i=1; i <= 5; i++) { %>
-        <% if (restaurant.rating = i) { %>
-          <option value="<%= i %>" selected>
+        <% if (restaurant.rating) { %>
+          <option value="<%= i %>" selected="<%= restaurant.rating = i ? 'selected' , '' %>">
         <% } else { %>
           <option value="<%= i %>">
         <% } %>
