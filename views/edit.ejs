@@ -3,26 +3,26 @@
 <form method="post" class="formgroup">
   <fieldset>
     <label for="name" class="col-sm-2" >Name:</label>
-    <input name="name" id="name" required class="col-sm-2" value="<%= restaurant.name ? restaurant.name : '' %>"/>
+    <input name="name" id="name" required class="col-sm-2" value="<%= restaurant ? restaurant.name : '' %>"/>
   </fieldset>
   <fieldset>
     <label for="phone" class="col-sm-2" >Phone Number:</label>
-    <input name="phone" id="phone" required class="col-sm-2" value="<%= restaurant.phone ? restaurant.phone : '' %>" />
+    <input name="phone" id="phone" required class="col-sm-2" value="<%= restaurant ? restaurant.phone : '' %>" />
   </fieldset>
   <fieldset>
     <label for="address" class="col-sm-2" >Address:</label>
-    <input name="address" id="address" required class="col-sm-2" value="<%= restaurant.address ? restaurant.address : '' %>"/>
+    <input name="address" id="address" required class="col-sm-2" value="<%= restaurant ? restaurant.address : '' %>"/>
   </fieldset>
   <fieldset>
     <label for="cuisine" class="col-sm-2" >Cuisine:</label>
-    <input name="cuisine" id="cuisine" required class="col-sm-2" value="<%= restaurant.cuisine ? restaurant.cuisine : '' %>"/>
+    <input name="cuisine" id="cuisine" required class="col-sm-2" value="<%= restaurant ? restaurant.cuisine : '' %>"/>
   </fieldset>
   <fieldset>
     <label for="rating" class="col-sm-2" >Rating:</label>
     <select name="rating" id="rating" required class="col-sm-2">
       <% for(var i=1; i <= 5; i++) { %>
-        <% if (restaurant.rating) { %>
-          <option value="<%= i %>" selected="<%= restaurant.rating = i ? 'selected' : '' %>">
+        <% if (restaurant) { %>
+          <option value="<%= i %>" <%= restaurant.rating = i ? 'selected' : '' %>>
         <% } else { %>
           <option value="<%= i %>">
         <% } %>
