@@ -22,7 +22,7 @@
     <select name="rating" id="rating" required class="col-sm-2">
       <% for(var i=1; i <= 5; i++) { %>
         <% if (restaurant) { %>
-          <option value="<%= i %>" <%= restaurant.rating = i ? 'selected' : '' %>>
+          <option value="<%= i %>" <%= restaurant.rating == i ? 'selected' : '' %>>
         <% } else { %>
           <option value="<%= i %>">
         <% } %>
