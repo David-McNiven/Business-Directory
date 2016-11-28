@@ -18,7 +18,7 @@
       </ul>
       <ul class="nav navbar-nav pull-right">
         <% if (user) { %>
-          <li>Welcome <%= user.username %></li>
+          <li class="navbar-text">Welcome <%= user.username %></li>
           <li><a href="/logout">Logout</a></li>
         <% } else { %>
           <li><a href="/login">Login</a></li>
