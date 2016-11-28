@@ -67,13 +67,17 @@ router.post('/:id', isAuth, function(req, res, next) {
 
 // attempt to delete selected restaurant from database on POST request
 router.get('/delete/:id', isAuth, function(req, res, next) {
-  Restaurant.remove({ _id: req.params.id }, function(err) {
-    if (err) {
-      res.redirect('/error');
-    } else {
-      res.redirect('/restaurants');
-    }
-  });
+  if (confirm('Are you sure you?')) {
+    Restaurant.remove({ _id: req.params.id }, function(err) {
+      if (err) {
+        res.redirect('/error');
+      } else {
+        res.redirect('/restaurants');
+      }
+    });
+  } else {
+    res.redirect('/restaurants');
+  }
 });
 
 // user authentication check for all CRUD operations
