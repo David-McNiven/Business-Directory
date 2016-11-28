@@ -51,15 +51,25 @@ passport.use(new githubStrategy({
   clientSecret: db.githubSecret,
   callbackURL: db.githubCallback
   }, function(accessToken, refreshToken, profile, cb) {
-    user.findOneAndUpdate({ oauthID: profile.id },
-      { username: profile.username, oauthID: profile.id },
-      { upsert: true },
-      function(err, user) {
+    user.findOne({ oauthID: profile.id }, function(err, user) {
         if (err) {
           console.log(err);
         }
-        else {
+        else if (user != null) {
           cb(null, user);
+        } else {
+          user = new user({
+            username: profile.username,
+            oauthID: profile.id
+          });
+          user.save(function(err, user) {
+            if (err) {
+              console.log(err);
+            }
+            else {
+              cb(null, user);
+            }
+          });
         }
     })
 }));

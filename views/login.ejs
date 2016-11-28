@@ -1,6 +1,9 @@
 <%- include('partials/header') %>
 <h1>Log In</h1>
 <form method="post" class="formgroup">
+  <%- if (messages.length > 0) { %>
+    <div class="alert alert-danger"><%= messages %></div>
+  <%- } %>
   <fieldset>
     <label for="username" class="col-sm-2">Username:</label>
     <input name="username" id="username" required class="col-sm-2" />
@@ -11,7 +14,9 @@
   </fieldset>
   <fieldset>
     <button type="submit" class="btn col-sm-offset-2">Submit</button>
-    <a href="/github" class="col-sm-offset-1">Login with github</a>
+    <a href="/github" class="col-sm-offset-1">
+      <img src="/images/github.png" alt="Log In with GitHub" />
+    </a>
   </fieldset>
 </form>
 <%- include('partials/footer') %>

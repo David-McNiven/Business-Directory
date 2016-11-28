@@ -9,10 +9,12 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/login', function(req, res, next) {
+  var messages = req.session.messages || [];
+  req.session.messages = [];
   if (req.user){
     res.redirect('/');
   } else {
-    res.render('login', { title: 'Login' , user: req.user});
+    res.render('login', { title: 'Login' , user: req.user, messages: messages});
   }
 });
 

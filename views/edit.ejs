@@ -1,0 +1,40 @@
+<%- include('partials/header') %>
+<h1><%= title %></h1>
+<form method="post" class="formgroup">
+  <fieldset>
+    <label for="name" class="col-sm-2" >Name:</label>
+    <input name="name" id="name" required class="col-sm-2" value="<%= restaurant.name ? restaurant.name : '' %>"/>
+  </fieldset>
+  <fieldset>
+    <label for="phone" class="col-sm-2" >Phone Number:</label>
+    <input name="phone" id="phone" required class="col-sm-2" value="<%= restaurant.phone ? restaurant.phone : '' %>" />
+  </fieldset>
+  <fieldset>
+    <label for="address" class="col-sm-2" >Address:</label>
+    <input name="address" id="address" required class="col-sm-2" value="<%= restaurant.address ? restaurant.address : '' %>"/>
+  </fieldset>
+  <fieldset>
+    <label for="cuisine" class="col-sm-2" >Cuisine:</label>
+    <input name="cuisine" id="cuisine" required class="col-sm-2" value="<%= restaurant.cuisine ? restaurant.cuisine : '' %>"/>
+  </fieldset>
+  <fieldset>
+    <label for="rating" class="col-sm-2" >Rating:</label>
+    <select name="rating" id="rating" required class="col-sm-2">
+      <% for(var i=0; i < 5; i++) { %>
+        <%- if (restaurant.rating = i) { %>
+          <option value="<%= i %>" selected>
+        <% } else { %>
+          <option value="<%= i %>">
+        <%- } %>
+          <% for(var j=0; j < i; j++) { %>
+            &#10026;
+          <% } %>
+        </option>
+      <% } %>
+    </select>
+  </fieldset>
+  <fieldset>
+    <button type="submit" class="btn col-sm-offset-2">Submit</button>
+  </fieldset>
+</form>
+<%- include('partials/footer') %>
