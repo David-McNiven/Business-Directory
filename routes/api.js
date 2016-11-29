@@ -1,9 +1,9 @@
 var express = require('express');
-var router = express.Router();;
+var router = express.Router();
 var Restaurant = require('../models/restaurant');
 
 // return a list of all restaurants
-router.route('/').get(function(req, res) {
+router.get('/', function(req, res, next) {
   Restaurant.find(function(err, restaurants){
     if (err) {
       res.send(err);
@@ -14,7 +14,7 @@ router.route('/').get(function(req, res) {
 });
 
 // returns specific restaurant
-router.route('/:id').get(function(req, res, next) {
+router.get('/:id', function(req, res, next) {
   Restaurant.findById(req.params.id,function(err, restaurant){
     if (err) {
       res.send(err);
