@@ -20,7 +20,8 @@ var user = require('./models/user');
 // routing
 var routes = require('./routes/index');
 var users = require('./routes/users');
-var restaurants = require('./routes/restaurants')
+var restaurants = require('./routes/restaurants');
+var api = require('./routes/api');
 
 var app = express();
 
@@ -87,6 +88,7 @@ passport.deserializeUser(user.deserializeUser());
 app.use('/', routes);
 app.use('/users', users);
 app.use('/restaurants', restaurants);
+app.use('/api', api);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
